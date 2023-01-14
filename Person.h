@@ -18,6 +18,7 @@ public:
     std::string getName();
     bool operator<(Person const& p) const;
     bool operator<(int) const;
+    int GetNumber() const;
     Person(std::string firstname, std::string lastname, int arbitrary);
     Person();
     ~Person();

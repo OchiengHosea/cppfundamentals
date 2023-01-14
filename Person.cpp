@@ -34,3 +34,7 @@ Person::~Person() {
 bool operator<(int i, Person const& p){
     return i < p.arbitraryNumber;
 }
+
+int Person::GetNumber() const {
+    return arbitraryNumber;
+}
