@@ -1,50 +1,41 @@
 #include <iostream>
 #include "Person.h"
-#include "Accum.h"
 
 using namespace std;
-template<class T>
-T Mmax(T const& t1, T const& t2) {
-    return t1 < t2 ? t2 : t1;
-}
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    Person p1("Ouma", "Oluoch", 43);
-    Person p2("Wekesa", "Bomae", 77);
+    int a = 3;
+    cout << "a is " << a << endl;
 
-    std::cout << "P1 is";
-    if (!(p1 < p2))
-        std::cout << "not";
-    std::cout << "Less than p2" << std::endl;
+    int& rA = a;
+    rA = 5;
+    cout << "a is now" << a << endl;
 
-    cout << "Max of 33 and 34 is " << Mmax(33, 34) << endl;
-    string s1 = "hello";
-    string s2 = "world";
-    cout << "max od " << s1 << " and " << s2 <<
-        " is " << Mmax(s1, s2) << endl;
+    Person p = Person("Gorry", "Burt", 3);
+    Person& rP = p;
+    rP.SetNumber(434);
+    cout << "rP: " << rP.getName()  << " " << rP.GetNumber() << endl;
 
-    cout << "Max of " << p1.getName() << " and " << p2.getName() <<
-        " is " << Mmax(p1, p2).getName() << endl;
+    cout << "\n+++++++++++++++++\n";
+    int* pA = &a;
+    *pA = 4;
+    cout << "a is " << a << endl;
+    int b = 100;
+    pA = &b;
+    (*pA)++;
+    cout << "a " << a << ", *pA " << *pA << endl;
 
-    cout << "\n";
 
-    Accum<int> integers(0);
-    integers += 3;
-    integers += 7;
-    cout << "Accumulated " << integers.GetTotal() << endl;
+    cout << "\n+++++++++++++++++\n";
 
-    Accum<string> names("");
-    names += p1.getName();
-    names += p2.getName();
-    cout << "All the names " << names.GetTotal() << endl;
+    Person* pP = &p;
+    (*pP).SetNumber(544);
+    pP->SetNumber(345);
+    cout << "rP: " << rP.getName() << " " << rP.GetNumber() << endl; // when talking to an object, use the dot
+    cout << "pP: " << pP->getName() << " " << pP->GetNumber() << endl; // when talking to a pointer, use the points to
 
-//    template specialization, for handling unaccounted template operations
-//    Person start("", "", 0);
-    Accum<Person> people(0);
-    people += p1;
-    people += p2;
-    cout << people.GetTotal() << endl;
+    // references must be initialized, and cannot be initialized to null
+    // pointers must also be initialized but can be initialized to be nullptr
 
     return 0;
 }

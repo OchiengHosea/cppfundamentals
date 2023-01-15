@@ -38,3 +38,7 @@ bool operator<(int i, Person const& p){
 int Person::GetNumber() const {
     return arbitraryNumber;
 }
+
+void Person::SetNumber(int n) {
+    arbitraryNumber = n;
+}

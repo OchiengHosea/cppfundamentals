@@ -3,4 +3,4 @@ project(fundamentals)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(fundamentals main.cpp Person.cpp Person.h BankAccount.cpp BankAccount.h Accum.h)
+add_executable(fundamentals main.cpp Person.cpp Person.h)

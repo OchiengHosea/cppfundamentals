@@ -19,6 +19,7 @@ public:
     bool operator<(Person const& p) const;
     bool operator<(int) const;
     int GetNumber() const;
+    void SetNumber(int number);
     Person(std::string firstname, std::string lastname, int arbitrary);
     Person();
     ~Person();
